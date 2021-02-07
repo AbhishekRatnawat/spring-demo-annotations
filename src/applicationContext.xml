@@ -7,30 +7,8 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- property files -->
-	<context:property-placeholder location="classpath:sports.properties"/>
-    <!-- Define your beans here -->
-    
-    <bean id="myFortune"
-    	class="com.myspring.springdemo.HappyFortuneService"> 
-    </bean>
-    
-    <bean id="myCoach"
-    	  class="com.myspring.springdemo.TrackCoach">
-    	  <!--  setup the constructor injection -->
-    	  <constructor-arg ref="myFortune"/>
-    </bean>
-    
-    <bean id="myCricketCoach"
-    	class="com.myspring.springdemo.CricketCoach">
-    	<!-- setting up setter injection -->
-    	
-    	<property name="fortuneService" ref="myFortune"/>
-    	<!-- inject literal values -->
-    	<property name="emailAddress" value="${foo.email}"></property>
-    	<property name="team" value="${foo.team}"></property>
-    	
-    </bean>
+	<!-- Entry to enable component scanning -->
+	<context:component-scan base-package="com.myspring.springdemo"></context:component-scan>
 </beans>
 
 
