@@ -2,7 +2,8 @@ package com.myspring.springdemo;
 
 import org.springframework.stereotype.Component;
 
-@Component("thatSillyCoach")
+//@Component("thatSillyCoach") explicit bean id
+@Component
 public class TennisCoach implements Coach {
 
 	@Override
