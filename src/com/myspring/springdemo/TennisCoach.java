@@ -1,13 +1,16 @@
 package com.myspring.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 @Component
-@Scope("prototype") //new instance will be created every time
+//@Scope("prototype") //new instance will be created every time - default scope is singleton
+
 public class TennisCoach implements Coach {
 
 	@Autowired
@@ -17,6 +20,18 @@ public class TennisCoach implements Coach {
 	//define a default constructor
 	public TennisCoach() {
 		System.out.println(">> Tennis Coach: inside default constructor");
+	}
+	
+	//define init method
+	@PostConstruct 
+	public void doMyStartupStuff() {
+		System.out.println(">> TennisCoach inside of doMyStartupStuff()");
+	}
+	
+	//define destroy method
+	@PreDestroy
+	public void doMyCleanupStuff() {
+		System.out.println(">> TennisCoach inside of doMyCleanupStuff()");
 	}
 	
 	//define a setter method
