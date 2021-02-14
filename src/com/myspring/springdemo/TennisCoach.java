@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
+	@Autowired
 	private FortuneService fortuneService;
 	
 	//define a default constructor
@@ -15,11 +16,19 @@ public class TennisCoach implements Coach {
 	}
 	
 	//define a setter method
+	
+	/*
 	@Autowired
 	public void setFortuneService(FortuneService theFortuneService) {
 		System.out.println(">> Tennis Coach: inside setFortuneService() method");
 		this.fortuneService = theFortuneService;
 	}
+	
+	@Autowired
+	public void doSomeCrazyThings(FortuneService theFortuneService) {
+		System.out.println(">> Tennis Coach: inside crazyThings() method");
+		this.fortuneService = theFortuneService;
+	}*/
 	
 	/*
 	@Autowired
