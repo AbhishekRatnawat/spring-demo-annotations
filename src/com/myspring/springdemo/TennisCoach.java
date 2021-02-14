@@ -2,10 +2,12 @@ package com.myspring.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 @Component
+@Scope("prototype") //new instance will be created every time
 public class TennisCoach implements Coach {
 
 	@Autowired
